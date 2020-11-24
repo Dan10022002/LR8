@@ -1,23 +1,23 @@
 #include <iostream>
 
-template <typename T>
+template <class T>
 struct List_element
-{
+    {
     T data;
-    List_element* list_next;
-    List_element* list_prev;
-    List_element* list_head;
-    List_element* list_end;
-};
+    List_element* next;
+    List_element* prev;
+    List_element* head;
+    List_element* curr;
+    };
 
-template <typename T>
+template <typename T> //1
 void Costructor (T List)
 {
-    List.list_head = nullptr;
-    List.list_end = nullptr;
+    List.head = nullptr;
+    List.curr = nullptr;
 }
 
-template <typename T>
+template <typename T> //2
 void Destructor (T List)
 {
     while (List.list_head != nullptr)
@@ -29,7 +29,7 @@ void Destructor (T List)
     }
 }
 
-template <typename T>
+template <typename T> //3
 size_t Size (const T List)
 {
     size_t list_size = 0;
@@ -44,7 +44,7 @@ size_t Size (const T List)
     return list_size;
 }
 
-template <typename T>
+template <typename T> //4
 void Push_in_head (T List)
 {
     if (List.list_head == nullptr)
@@ -65,7 +65,7 @@ void Push_in_head (T List)
     }
 }
 
-template <typename T>
+template <typename T> //5
 void Push_in_back (T List)
 {
     if (List.list_head == nullptr)
@@ -86,14 +86,25 @@ void Push_in_back (T List)
     }
 }
 
-template <typename T>
-void Push_for_index (T List)
+template <typename T> //6
+void Push_for_index (T List, unsigned int n)
 {
+    if (n>Size(List))
+    {
+        Push_in_back (List);
+    }
+    else
+    {
+        for(int i=0; i<n; i++)
+        {
+            T list_time = new T;
+            list_time -> data = List.data;
 
+        }
+    }
 }
 
 int main()
 {
-
     return 0;
 }
