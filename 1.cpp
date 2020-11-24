@@ -66,7 +66,7 @@ void Push_in_head (List_general<T>& List, T n)
     if (List.list_begin == nullptr)
     {
         List_element<T>* list_time = new List_element<T>;
-        list_time -> data = List.data;
+        list_time -> data = n;
         List.list_begin = list_time;
         List.list_end = list_time;
         list_time -> list_next = list_time;
@@ -76,7 +76,7 @@ void Push_in_head (List_general<T>& List, T n)
     else
     {
         List_element<T>* list_time = new List_element<T>;
-        list_time -> data = List.data;
+        list_time -> data = n;
         List.list_begin -> list_prev = list_time;
         List.list_begin = list_time;
         list_time -> list_next = List.list_begin;
@@ -91,7 +91,7 @@ void Push_in_back (List_general<T>& List, T n)
     if (List.list_head == nullptr)
     {
         List_element<T>* list_time = new List_element<T>;
-        list_time -> data = List.data;
+        list_time -> data = n;
         List.list_head = list_time;
         List.list_end = list_time;
         list_time -> list_next = list_time;
@@ -101,7 +101,7 @@ void Push_in_back (List_general<T>& List, T n)
     else
     {
         List_element<T>* list_time = new List_element<T>;
-        list_time -> data = List.data;
+        list_time -> data = n;
         List.list_end -> list_next = list_time;
         List.list_end = list_time;
         list_time -> list_next = List.list_begin;
@@ -122,7 +122,7 @@ void Push_for_index (List_general<T>& List, T x, unsigned int n)
         counter+=1;
     }
     List_element<T>* list_time1 = new List_element<T>;
-    list_time1 -> data = List.data;
+    list_time1 -> data = x;
     list_time1 -> list_prev = list_time -> list_prev;
     list_time -> list_prev -> list_next = list_time1;
     list_time -> list_prev = list_time1;
@@ -141,7 +141,7 @@ void Push_for_pointer (List_general<T>& List, T n, List_element<T>* Point)
         list_time = list_time -> list_next;
     }
     List_element<T>* list_time1 = new List_element<T>;
-    list_time1 -> data = List.data;
+    list_time1 -> data = n;
     list_time1 -> list_prev = list_time -> list_prev;
     list_time -> list_prev -> list_next = list_time1;
     list_time -> list_prev = list_time1;
