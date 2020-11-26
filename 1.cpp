@@ -7,6 +7,12 @@ struct Check
     char a;
 };
 
+std::ostream& operator<< (std::ostream& out, const Check& Check)
+{
+    out << Check.k << " " << Check.t << " " << Check.a <<  std::endl;
+    return out;
+}
+
 template <class T>
 struct List_element
 {
