@@ -11,8 +11,8 @@ template <class T>
 struct List_element
 {
     T data;
-    List_element* next;
-    List_element* prev;
+    List_element* list_next;
+    List_element* list_prev;
 };
 
 template <class T>
@@ -88,11 +88,11 @@ void Push_in_head (List_general<T>& List, T n)
 template <typename T> //5
 void Push_in_back (List_general<T>& List, T n)
 {
-    if (List.list_head == nullptr)
+    if (List.list_begin == nullptr)
     {
         List_element<T>* list_time = new List_element<T>;
         list_time -> data = n;
-        List.list_head = list_time;
+        List.list_begin = list_time;
         List.list_end = list_time;
         list_time -> list_next = list_time;
         list_time -> list_prev = list_time;
