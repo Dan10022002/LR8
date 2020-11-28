@@ -183,6 +183,18 @@ int main()
 {
     //Проверка для пользовательского типа данных
     Check check1, check2, check3, check4;
+    check1.k = 12;
+    check1.t = 111.12;
+    check1.a = 'a';
+    check2.k = 995;
+    check2.t = 166.404;
+    check2.a = 'b';
+    check3.k = 1;
+    check3.t = 13.1313;
+    check3.a = 'c';
+    check4.k = 0;
+    check4.t = 0.333;
+    check4.a = 'd';
     List_array<Check, 8> Check;
     Constructor(Check);
     Push_in_back(Check, check2);
