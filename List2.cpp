@@ -72,26 +72,23 @@ void Push_for_index(List_general<T, size>& List, T Element, unsigned int n)
     {
         std::cout << "The List is full. Operation error.";
     }
-    else if (n > List.list_size)
-    {
-        std::cout << "The index exceeds the size of the list. Operation error.";
-    }
     else 
     {
-        while (n < (Size(List) - 1))
+        if (n <= (Size(List) - 1))
         {
-            T list_time;
-            list_time = List.value[n];
-            List.value[n] = Element;
-            Element = list_time;
-            n += 1;
-        }
-        if (n < (Size(List) - 1))
-        {
+            while (n <= Size(List))
+            {
+                T list_time;
+                list_time = List.value[n];
+                List.value[n] = Element;
+                Element = list_time;
+                n += 1;
+            }
             List.list_size += 1;
         }
         else
         {
+            List.value[n] = Element;
             List.list_size = n + 1;
         }
     }
