@@ -54,7 +54,7 @@ void Destructor(List_general<T, size>& List)
 template <class T, unsigned int size> //4
 void Push_in_back(List_general<T, size>& List, T Element)
 {
-    if (Size(List) == List.list_size)
+    if (Size(List) == size)
     {
         std::cout << "The List is full. Operation error.";
     }
@@ -68,7 +68,7 @@ void Push_in_back(List_general<T, size>& List, T Element)
 template <class T, unsigned int size> //5
 void Push_for_index(List_general<T, size>& List, T Element, unsigned int n)
 {
-    if (Size(List) == List.list_size)
+    if (Size(List) == size)
     {
         std::cout << "The List is full. Operation error.";
     }
