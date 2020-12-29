@@ -164,7 +164,7 @@ void Push_for_pointer (List_general<T>& List, T Element, List_element<T>* pointe
     } while (list_time1 != pointer);
     list_time2 = list_time1 -> list_next;
     List_element<T>* list_pointer = new List_element<T>; //необходимый элемент
-    list_pointer -> value = Element.value;
+    list_pointer -> value = Element;
     list_pointer -> list_next = list_time2;
     list_pointer -> list_prev = list_time1;
     list_time1 -> list_next = list_pointer;
@@ -304,7 +304,7 @@ T Find_index (List_general<T>& List, T Element)
     List_element<T>* list_time;
     list_time = List.list_begin;
     List_element<T>* list_index;
-    list_index -> value = Element.value;
+    list_index -> value = Element;
     do
     {
         list_time = list_time -> list_next;
