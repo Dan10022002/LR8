@@ -186,6 +186,7 @@ T Pop_from_head (List_general<T>& List)
         List.list_begin -> list_prev = List.list_end;
         List.list_end -> list_next = List.list_begin;
         return list_time -> value;
+        delete list_time;
     }
 }
 
@@ -204,6 +205,7 @@ T Pop_from_back (List_general<T>& List)
         List.list_end -> list_next = List.list_begin;
         List.list_begin -> list_prev = List.list_end;
         return list_time -> value;
+        delete list_time;
     }
 }
 
@@ -237,6 +239,7 @@ T Pop_for_index (List_general<T>& List, unsigned int n)
         (list_time -> list_next) -> list_prev = list_time -> list_prev;
         (list_time -> list_prev) -> list_next = list_time -> list_next;
         return list_time -> value;
+        delete list_time;
     }
 }
 
@@ -258,6 +261,7 @@ T Pop_for_pointer (List_general<T>& List, List_element<T>* pointer)
         (list_time -> list_next) -> list_prev = list_time -> list_prev;
         (list_time -> list_prev) -> list_next = list_time -> list_next;
         return list_time;
+        delete list_time;
     }
 }
 
