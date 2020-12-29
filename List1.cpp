@@ -275,12 +275,12 @@ T Value_for_index (List_general<T>& List, unsigned int n)
     else if (n == 0)
     {
         std::cout << "A needed element is the first in List.";
-        Pop_from_head(List);
+        return List.list_begin->value;
     }
-    else if (n >= Size(List))
+    else if (n >= (Size(List) - 1))
     {
         std::cout << "A needed element is the last in List.";
-        Pop_from_back(List);
+        return List.list_end->value;
     }
     else
     {
@@ -293,6 +293,7 @@ T Value_for_index (List_general<T>& List, unsigned int n)
             counter += 1;
         } while (counter != n);
         return list_time -> value;
+        delete list_time;
     }
 }
 
