@@ -177,7 +177,6 @@ T Pop_from_head (List_general<T>& List)
     if (List.list_begin == nullptr)
     {
         std::cout << "The List is clear.";
-        return; //осуществляем выход из функции, т.к. нечего возвращать
     }
     else
     {
@@ -196,7 +195,6 @@ T Pop_from_back (List_general<T>& List)
     if (List.list_begin == nullptr)
     {
         std::cout << "The List is clear.";
-        return;
     }
     else
     {
@@ -215,7 +213,6 @@ T Pop_for_index (List_general<T>& List, unsigned int n)
     if (List.list_begin == nullptr)
     {
         std::cout << "The List is clear.";
-        return;
     }
     else if (n == 0)
     {
@@ -249,7 +246,6 @@ T Pop_for_pointer (List_general<T>& List, List_element<T>* pointer)
     if (List.list_begin == nullptr)
     {
         std::cout << "The List is clear.";
-        return;
     }
     else
     {
@@ -271,7 +267,6 @@ T Value_for_index (List_general<T>& List, unsigned int n)
     if (List.list_begin == nullptr)
     {
         std::cout << "The List is clear.";
-        return;
     }
     else if (n == 0)
     {
