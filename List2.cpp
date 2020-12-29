@@ -100,7 +100,6 @@ T Pop_from_head(List_general<T, size>& List)
     if (Size(List) == 0)
     {
         std::cout << "The list is clear. Operation error.";
-        return  static_cast<char>(32);
     }
     else
     {
@@ -121,7 +120,6 @@ T Pop_from_back(List_general<T, size>& List)
     if (Size(List) == 0)
     {
         std::cout << "The list is clear. Operation error.";
-        return  static_cast<char>(32);
     }
     else
     {
@@ -138,12 +136,10 @@ T Pop_for_index(List_general<T, size>& List, unsigned int n)
     if (Size(List) == 0)
     {
         std::cout << "The list is clear. Operation error.";
-        return  static_cast<char>(32);
     }
     else if (n > (Size(List) - 1))
     {
         std::cout << "The index exceeds the size of the list. Operation error.";
-        return  static_cast<char>(32);
     }
     else if (Size(List) == 1)
     {
@@ -168,12 +164,10 @@ T Value_for_index(List_general<T, size>& List, unsigned int n)
     if (Size(List) == 0)
     {
         std::cout << "The list is clear. Operation error.";
-        return  static_cast<char>(32);
     }
     else if (n > (Size(List) - 1))
     {
         std::cout << "The index exceeds the size of the list. Operation error.";
-        return  static_cast<char>(32);
     }
     else
     {
@@ -187,7 +181,6 @@ T Value_for_index(List_general<T, size>& List, T Element)
     if (Size(List) == 0)
     {
         std::cout << "The list is clear. Operation error.";
-        return  static_cast<char>(32);
     }
     else
     {
