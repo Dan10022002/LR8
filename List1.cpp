@@ -159,10 +159,10 @@ void Push_for_pointer (List_general<T>& List, T Element, List_element<T>* pointe
     List_element<T>* list_time1; //аналогично
     List_element<T>* list_time2;
     list_time1 = List.list_begin;
-    do
+    while (list_time1 != pointer)
     {
         list_time1 = list_time1 -> list_next;
-    } while (list_time1 != pointer);
+    }
     list_time2 = list_time1 -> list_next;
     List_element<T>* list_pointer = new List_element<T>; //необходимый элемент
     list_pointer -> value = Element;
@@ -353,19 +353,19 @@ int main()
     check4.k = 0;
     check4.t = 0.333;
     check4.a = 'd';
-    List_general<Check> Check;
-    Constructor(Check);
-    Push_in_head(Check, check1);
+    List_general<Check> check;
+    Constructor(check);
+    Push_in_head(check, check1);
     std::cout << "\n";
-    Print(Check);
-    Push_in_back(Check, check2);
+    Print(check);
+    Push_in_back(check, check2);
     std::cout << "\n";
-    Print(Check);
-    Push_for_index(Check, check3, 1);
+    Print(check);
+    Push_for_index(check, check3, 1);
     std::cout << "\n";
-    Print(Check);
+    Print(check);
     std::cout << "\n";
-    int position = Find_index(Check, check4);
+    int position = Find_index(check, check4);
     if (position == -1)
     {
         std::cout << "There isn't a needed element.\n";
@@ -374,14 +374,18 @@ int main()
     {
         std::cout << position << "\n";
     }
-    Pop_from_head(Check);
+    List_element<Check>* pointer1 = check.list_end;
+    Push_for_pointer(check, check4, pointer1);
+    Print(check);
     std::cout << "\n";
-    Print(Check);
-    Pop_from_back(Check);
+    Pop_from_head(check);
     std::cout << "\n";
-    Print(Check);
-    std::cout << Size(Check) << "\n";
-    Destructor(Check);
+    Print(check);
+    Pop_from_back(check);
+    std::cout << "\n";
+    Print(check);
+    std::cout << Size(check) << "\n";
+    Destructor(check);
     //Проверка для стандартного типа данных
     List_general<int> Check1;
     Constructor(Check1);
@@ -403,6 +407,10 @@ int main()
     {
         std::cout << position << "\n";
     }
+    List_element<int>* pointer = Check1.list_begin;
+    Push_for_pointer(Check1, 6, pointer);
+    Print(Check1);
+    std::cout << "\n";
     Pop_from_head(Check1);
     Print(Check1);
     std::cout << "\n";
