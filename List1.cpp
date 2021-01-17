@@ -13,6 +13,11 @@ std::ostream& operator<< (std::ostream& out, const Check& Check)
     return out;
 }
 
+bool operator== (const Check& l_argument, const Check& r_argument)
+{
+    return ((l_argument.k == r_argument.k) && (l_argument.t == r_argument.t) && (l_argument.a == r_argument.a));
+}
+
 template <class T>
 struct List_element
 {
@@ -73,10 +78,10 @@ void Destructor (List_general<T>& List)
 template <typename T> //4
 void Push_in_head (List_general<T>& List, T Element)
 {
+    List_element<T>* list_time = new List_element<T>;
+    list_time -> value = Element;
     if(List.list_begin == nullptr)
     {
-        List_element<T>* list_time = new List_element<T>;
-        list_time -> value = Element;
         list_time -> list_next = list_time;
         list_time -> list_prev = list_time;
         List.list_begin = list_time;
@@ -84,8 +89,6 @@ void Push_in_head (List_general<T>& List, T Element)
     }
     else
     {
-        List_element<T>* list_time = new List_element<T>;
-        list_time -> value = Element;
         list_time -> list_next = List.list_begin;
         list_time -> list_prev = List.list_end;
         List.list_begin -> list_prev = list_time;
@@ -97,10 +100,10 @@ void Push_in_head (List_general<T>& List, T Element)
 template <typename T> //5
 void Push_in_back (List_general<T>& List, T Element)
 {
+    List_element<T>* list_time = new List_element<T>;
+    list_time -> value = Element;
     if(List.list_begin == nullptr)
     {
-        List_element<T>* list_time = new List_element<T>;
-        list_time -> value = Element;
         list_time -> list_next = list_time;
         list_time -> list_prev = list_time;
         List.list_begin = list_time;
@@ -108,8 +111,6 @@ void Push_in_back (List_general<T>& List, T Element)
     }
     else
     {
-        List_element<T>* list_time = new List_element<T>;
-        list_time -> value = Element;
         list_time -> list_prev = List.list_end;
         list_time -> list_next = List.list_begin;
         List.list_begin -> list_prev = list_time;
@@ -293,24 +294,35 @@ T Value_for_index (List_general<T>& List, unsigned int n)
             counter += 1;
         } while (counter != n);
         return list_time -> value;
-        delete list_time;
     }
 }
 
 template <typename T> //13
-T Find_index (List_general<T>& List, T Element)
+int Find_index (List_general<T>& List, T Element)
 {
     int counter = 0;
     List_element<T>* list_time;
     list_time = List.list_begin;
-    List_element<T>* list_index;
-    list_index -> value = Element;
-    do
+    for (int h = 0; h < Size(List); h++)
     {
-        list_time = list_time -> list_next;
-        counter += 1;
-    } while ((list_time -> value) != (list_index -> value));
-    return counter;
+        if ((list_time -> value) == Element)
+        {
+            return counter;
+        }
+        else
+        {
+            if (h == (Size(List) - 1))
+            {
+                counter = -1;
+                return counter;
+            }
+            else
+            {
+                list_time = list_time -> list_next;
+                counter += 1;
+            }
+        }
+    }
 }
 
 template <typename T> //14
@@ -352,6 +364,16 @@ int main()
     Push_for_index(Check, check3, 1);
     std::cout << "\n";
     Print(Check);
+    std::cout << "\n";
+    int position = Find_index(Check, check4);
+    if (position == -1)
+    {
+        std::cout << "There isn't a needed element.\n";
+    }
+    else
+    {
+        std::cout << position << "\n";
+    }
     Pop_from_head(Check);
     std::cout << "\n";
     Print(Check);
@@ -372,6 +394,15 @@ int main()
     Push_for_index(Check1, 17, 1);
     Print(Check1);
     std::cout << "\n";
+    position = Find_index(Check1, 3);
+    if (position == -1)
+    {
+        std::cout << "There isn't a needed element.\n";
+    }
+    else
+    {
+        std::cout << position << "\n";
+    }
     Pop_from_head(Check1);
     Print(Check1);
     std::cout << "\n";
